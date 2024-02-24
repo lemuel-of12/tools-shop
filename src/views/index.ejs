@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <title>tools shop</title>
+    <style>
+        .container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .container1{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .img{
+            max-width: 1000px;
+        }
+        .one{
+            background-color: aqua;
+
+         
+        }
+
+        
+    </style>
+
+</head>
+<body >
+    
+    <div data-role="page" data-theme="a" id="one">
+        <center><h1>tools shop</h1></center>
+        <div  data-role="header">
+            <div data-role="navbar" data-iconpos="left">
+            <ul>
+                <li><a href="#three" data-icon="home">home</a></li>
+                <li><a href="#one" data-icon="search" class="ui-btn-active">insert</a></li>
+                <li><a href="#two" data-icon="grid">products</a></li>
+
+
+            </ul>
+                </div>
+        </div>
+        <div data-role="content" >
+            <form  action="/api/products/" method="POST">
+                <div class="container">
+                    <div class="img">
+                        <img src="https://grinderspizza.com/wp-content/uploads/2023/06/GRINDERS_Original_Lockup_GRADIENT-1-1.png" style="max-width:100%;">
+                    </div>
+                    
+                   
+
+                </div>
+                
+                <label for="txt_codigo_barras" style="color: rgb(255, 255, 255)">Codigo de barras:</label>
+                <input type="text" name="barcode" id="txt_codigo_barras" placeholder="Código de barras" value="">
+                
+                <label for="txt_description" style="color: rgb(255, 255, 255);">Descripción:</label>
+                    <input type="text" name="description" id="txt_description" placeholder="Descripción" value="">
+
+                    <label for="txt_brand" style="color: rgb(255, 255, 255);">Marca:</label>
+                    <input type="text" name="brand" id="txt_brand" placeholder="marca" value="">
+
+                    <label for="txt_price" style="color: rgb(255, 255, 255);">Precio:</label>
+                    <input type="text" name="price" id="txt_price" placeholder="Precio" value="">
+
+                    <label for="txt_cost" style="color: rgb(255, 255, 255);">Costo:</label>
+                    <input type="text" name="cost" id="txt_cost" placeholder="Costo" value="">
+
+                    <label for="txt_stock" style="color:rgb(255, 255, 255)">Stock</label>
+                    <input type="text" name="stock" id="txt_stock" placeholder="Stock" value="">
+
+                    <label for="txt_expiredDate" style="color: rgb(255, 255, 255)">Caducidad</label>
+                    <input type="text" name="expiredDate" id="txt_expiredDate" placeholder="Caducidad" value="">
+
+                    <label for="img" style="color: rgb(255, 255, 255)">Imagen</label>
+                    <input type="text" name="img" id="img" placeholder="Imagen" value="">
+
+                    <label for="flip-2" style="color:rgb(255, 255, 255)">Activo</label>
+                    <select name="status" id="flip-2" data-role="slider">
+                     <option value="0">Activo</option>
+                  <option value="1">Inactivo</option>
+                </select>
+
+                    <label for="submit-6" style="color: rgb(255, 255, 255)">Enviar</label>
+                    <button class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-myicon">Enviar</button>
+            </form>
+
+            
+            <div class="container">
+                <h1>"Copyright © 2024. Todos los derechos reservados. Diseñado con pasión por Lemuel Company."</h1>
+            </div>
+        <div data-role="footer">
+            <h5> Desarrollado por Lemuel uwu</h5>
+
+        </div>
+        </div>
+    </div>
+    
+    ----------------------
+    <div data-role="page" data-theme="a" id="two">
+        <center><h1>tools shop</h1></center>
+        <div  data-role="header">
+            <div data-role="navbar" data-iconpos="left">
+            <ul>
+                <li><a href="#three" data-icon="home">home</a></li>
+                <li><a href="#one" data-icon="search" class="ui-btn-active">insert</a></li>
+                <li><a href="#two" data-icon="grid">products</a></li>
+
+
+            </ul>
+                </div>
+        </div>
+        <div data-role="content" >
+            <div class="container">
+                <div class="img">
+                    <img src="https://grinderspizza.com/wp-content/uploads/2023/06/GRINDERS_Original_Lockup_GRADIENT-1-1.png" style="max-width:100%;">
+                </div>
+                
+               
+
+            </div>
+            <form>
+                <input data-type="search" id="searchForCollapsibleSet">
+                </form>
+                <div  data-role="collapsibleset" data-filter="true" data-inset="true" id="collapsiblesetForFilter" 
+                data-input="#searchForCollapsibleSet">
+                    
+                        <% products.forEach((product) => { %>
+                            <div data-role="collapsible" data-filtertext="<%= product.description %>">
+                                <h1><%= product.description %></h1>
+                                <ul data-role="listview" data-inset="false">
+                                    <li>Codigo de barras:<%= product.barcode %></li>
+                                    <li>Marca:<%= product.brand %></li>
+                                    <li>Precio de compra:<%= product.price %></li>
+                                    <li>Precio de venta:<%= product.cost %></li>
+                                    <li>Existencias:<%= product.stock %></li>
+                                    <li>Fecha de caducidad:<%= product.expiredDate %></li>
+                                    <li>Estatus:<%= product.status %></li>
+                                    <li>Imagen:<%= product.img %></li>
+
+                                    <form action="/api/products/<%= product.barcode %>/delete" method="POST">
+                                        <a href="/api/products/<%= product.barcode %>" class="ui-btn ui-btn-inline">Editar</a>
+                                        <button type="submit" class="ui-btn ui-btn-inline">Eliminar</button>
+                                    </form>
+                                </ul>
+                            </div>
+                            <% }) %>
+    </div>
+    <div class="container">
+        <h1>"Copyright © 2024. Todos los derechos reservados. Diseñado con pasión por Lemuel Company."</h1>
+    </div>
+        <div data-role="footer">
+            <h5> Desarrollado por Lemuel uwu</h5>
+
+        </div>
+        </div>
+    </div>
+    ------------------------
+    <div data-role="page" data-theme="a" id="three">
+        <center><h1>tools shop</h1></center>
+        <div  data-role="header">
+            <div data-role="navbar" data-iconpos="left">
+            <ul>
+                <li><a href="#three" data-icon="home">home</a></li>
+                <li><a href="#one" data-icon="search" class="ui-btn-active">insert</a></li>
+                <li><a href="#two" data-icon="grid">products</a></li>
+
+
+            </ul>
+                </div>
+        </div>
+        <div data-role="content" >
+            <div class="container">
+                <div class="img">
+                    <img src="https://grinderspizza.com/wp-content/uploads/2023/06/GRINDERS_Original_Lockup_GRADIENT-1-1.png" style="max-width:100%;">
+                </div>
+                
+               
+
+            </div>
+            <form>
+                <input data-type="search" id="searchForCollapsibleSet">
+                </form>
+                <div  data-role="collapsibleset" data-filter="true" data-inset="true" id="collapsiblesetForFilter" 
+                data-input="#searchForCollapsibleSet">
+              
+                
+                    
+                        <% products.forEach((product) => { %>
+                            <div data-role="collapsible" data-filtertext="<%= product.description %>">
+                                <h1><%= product.description %></h1>
+                                <ul data-role="listview" data-inset="false">
+                                    <li>Codigo de barras:<%= product.barcode %></li>
+                                    <li>Marca:<%= product.brand %></li>
+                                    <li>Precio de compra:<%= product.price %></li>
+                                    <li>Precio de venta:<%= product.cost %></li>
+                                    <li>Existencias:<%= product.stock %></li>
+                                    <li>Fecha de caducidad:<%= product.expiredDate %></li>
+                                    <li>Estatus:<%= product.status %></li>
+                                    <li>Imagen:<%= product.img %></li>
+
+                                    <div class="container">
+                                        <div class="img">
+                                            <img src="https://www.zamnesia.es/modules/prestablog/themes/responsive/up-img/1641.jpg " style="max-width:100%;">
+                                        </div>
+                                    </div>
+                                </ul>
+                            </div>
+                            <% }) %>
+    </div>
+    <div class="container">
+        <h1>"Copyright © 2024. Todos los derechos reservados. Diseñado con pasión por Lemuel Company."</h1>
+    </div>
+        <div data-role="footer">
+            <h5> Desarrollado por Lemuel uwu</h5>
+
+        </div>
+        </div>
+    </div>
+
+
+    
+</body>
+</html>
